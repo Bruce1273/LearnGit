@@ -1,0 +1,97 @@
+﻿
+Git 学习：
+
+$ mkdir learngit
+$ cd learngit
+$ git init
+
+$ git add readme.txt
+
+$ git commit -m "wrote a readme file"
+
+$ git status
+
+$ git diff readme.txt
+
+$ git log
+$ git log --graph --pretty=oneline --abbrev-commit
+$ git reflog
+
+$ git reset --hard HEAD   //当前版本
+$ git reset --hard HEAD^  //上一版本
+$ git reset --hard HEAD^^ //上上一个版本
+
+$ git checkout -- readme.tx  //撤销修改，--很重要，没有--，就变成了切换到另一个分支。
+$ git reset HEAD //撤销缓存区修改
+
+
+$ git rm test.txt  //删除文件
+$ git commit -m "remove test.txt"
+
+$ git checkout -- test.txt  //it checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+
+$ git branch    //查看分支
+
+$ git branch <name> //创建分支
+
+$ git checkout <name> / git switch <name> //切换分支
+
+$ git checkout -b <name> / git switch -c <name> //创建+切换分支
+
+$ git merge <name> //合并某分支到当前分支
+
+$ git branch <name> //删除分支
+
+$ git merge 如何实现？？？？？？？？？？？？？？？？？？
+
+$ git stash //保存当前分支尚未提交的修改
+$ git stash list  //列出尚未提交的修改
+$ git stash pop  //恢复stash前的修改，并删除stash
+$ git stash apply //恢复stash
+$ git stash drop  //删除stash
+$ git stash apply stash@{n} //恢复到指定的Stash
+$ git cherry -pick xxxxxx  //复制一个特定的提交到当前分支
+
+$ git branch -d feature-vulcan //删除分支
+$ git branch -D feature-vulcan //强制删除分支
+
+$ git remote //查看远程库信息，远程库名为origin
+$ git remote -v //显示更详细的信息
+
+$ git push origin brachname  //将本地提交推送到远程库，一般master分支和dev分支推送到远程服务器上
+
+$ git clone git@github.com:michaelliao/learngit.git //克隆远程库
+
+$ git switch -c dev origin/dev //克隆远程库代码后，默认本地只有master分支，如需在dev上开发需要执行
+
+$ git pull //把最新提交抓取下来
+
+$ git branch --set-upstream-to=origin/dev dev  //git pull时出现There is no tracking，本地分支与远程分支没有链接
+
+$ git tag <tagname> //用于创建一个标签，默认为HEAD,也可以指定一个commit id
+$ git tag <tagname> <commit id> //对指定的commit id 创建标签
+$ git tag -a v0.1 -m "version 0.1 released" 1094adb  //-a 指定标签名， -m指定说明文字
+$ git tag  //查看所有标签
+$ git show  <tag name> //
+
+$ git push origin <tagname>  //推送一个本地标签到远程库
+$ git push origin --tags //推送全部未推送的标签到远程库
+$ git tag -d <tagname>  // 删除标签
+$ git push origin :refs/tags/<tagname>  //删除远程标签，需要先删除本地标签
+$ git last  //显示最后一条提交信息
+
+$ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
